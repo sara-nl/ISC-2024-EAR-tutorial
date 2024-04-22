@@ -1,5 +1,6 @@
 # Energy Management and Optimization with EAR
 ## Tutorial ISC 2024
+https://app.swapcard.com/event/isc-high-performance-2024/planning/UGxhbm5pbmdfMTgyNTYyMw==
 
 ## Schedule
 ### May 12 2024 (start 14:00 end 18:00)
