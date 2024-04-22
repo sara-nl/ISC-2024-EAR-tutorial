@@ -7,7 +7,7 @@ https://app.swapcard.com/event/isc-high-performance-2024/planning/UGxhbm5pbmdfMT
 - (14:00-15:00) Introduction 
 - (15:00-16:00) Energy Monitoring
 - (16:00-17:00) Energy Optimization
-- (16:00-17:00) Visualization
+- (17:00-18:00) Visualization
 
 ## Practical information
 - [How to connect to Snellius](#how-to-connect-to-snellius)
