@@ -1,17 +1,16 @@
-# Energy efficient computing
+# Energy Management and Optimization with EAR
+## Tutorial ISC 2024
 
 ## Schedule
-### April 18 2024 (start 10:00 end 14:00)
-- (10:00-11:00) Introduction 
-- (11:00-12:45) Energy Monitoring and Optimization
-- (12:45) Lunch
-- (Lunch -> 14:00) LAB time
+### May 12 2024 (start 14:00 end 18:00)
+- (14:00-15:00) Introduction 
+- (15:00-16:00) Energy Monitoring
+- (16:00-17:00) Energy Optimization
+- (16:00-17:00) Visualization
 
 ## Practical information
 - [How to connect to Snellius](#how-to-connect-to-snellius)
 - [How to interact with the course.](#how-to-interact-with-the-course)
-- [Previous Course Material](#previous-course-material)
-
 
 ### How to connect to Snellius
 
@@ -46,12 +45,3 @@ This course is a "command line" course. We assume that you are somewhat comforta
 2. [MobaXterm](https://mobaxterm.mobatek.net) (windows) 
 3. Visual Studio Code we have documentation on how to set it up [here](https://servicedesk.surf.nl/wiki/display/WIKI/Visual+Studio+Code+for+remote+development) (go to the Running the VS Code Server on a login node section)
 
-
-### Previous Course Material
-> Past course materials can be found on seperate branches on this repository.
-
-- June 15-16 2023. [Material](https://github.com/sara-nl/energy-efficient-computing/tree/june_2023)
-    - Topic Intro - Sagar Dolas (SURF)
-    - System architecture - Prof. Ana Lucia Varbanescu (UTwente)
-    - Characteristics of applications - Xavier Álvarez Farré (SURF)
-    - Kernel Tuner - Alessio Sclocco and Stijn Heldens (Netherlands eScience Center)
