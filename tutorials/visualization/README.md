@@ -28,7 +28,8 @@ Enable the CSV pplugin by creating a custom.ini file in the conf folder with the
 ```
 [plugin.marcusolsson-csv-datasource]
 allow_local_mode = true
-``
+```
+
 At this point, you have a local server running on your PC or laptop. Open your web browser and connect to Grafana at the URL: http://localhost:3000/login 
 The user/passs by default is admin/admin. You will be prompted to change them but you can skip it.
 
