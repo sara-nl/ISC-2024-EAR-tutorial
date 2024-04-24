@@ -1,5 +1,86 @@
 # EAR data visualization
 ## Grafana
+
+EAR data can be visualized with Grafana dashboards in two different ways: Using grafana with SQL queries (depending in you DC configuration) and visualizing data collected with eacct and loading locally. We are going to explain how to install grafana locally and load a CSV file generated with eacct. 
+
+Download and untar Grafana binaries
+
+```
+wget https://dl.grafana.com/enterprise/release/grafana-enterprise-10.4.1.linux-amd64.tar.gz
+tar -zxvf grafana-enterprise-10.4.1.linux-amd64.tar.gz
+```
+
+You can also go to Grafana web page to download specific versions (https://grafana.com/get/?pg=graf&plcmt=hero-btn-1&tab=self-managed https://grafana.com/grafana/download?edition=enterprise&pg=get&plcmt=selfmanaged-box1-cta1)
+
+If needed, update your loca configuration following Grafana documentation (https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/)
+
+Start grafana server : sbin/grafana-server web
+
+Install the CSV plugin : 
+
+```
+bin/grafana-cli plugins install marcusolsson-csv-datasource (You can first check if it's already available by testing the available Data sources)
+```
+
+
+Enable the CSV pplugin by creating a custom.ini file in the conf folder with the following content
+
+```
+[plugin.marcusolsson-csv-datasource]
+allow_local_mode = true
+``
+At this point, you have a local server running on your PC or laptop. Open your web browser and connect to Grafana at the URL: http://localhost:3000/login 
+The user/passs by default is admin/admin. You will be prompted to change them but you can skip it.
+
+Next steps are:
+
+1 - Create the Data source 
+2 - Import the JSON file to create the visualization dashboards
+3 - Copy the CSV files with data for jobs and runtime metrics (must be copied with pre-defined filenames)
+4 - Refresh the URL
+
+## Create the Data source
+
+In the left menu, select Configuration/Data source/Add data source. Select CSV data source from the list of options. 
+
+![CSV data source](../../images/.png)
+
+We will create two data sources, one for application data and the other for runtime metrics (“loops” data). For each one, select “Local” , path has to be a “public” folder, in the example /Users/julita.corbalan/Public/LOGS . Complete and select “Save&test”. The name of the data source cannot be modified and neither the file names with data. 
+
+The name of the application data source is EAR\_apps and the filename is ear\_data\_apps.csv, and the runtime data source is EAR\_loops and the filename ear\_data\_loops.csv
+
+
+![EAR application data source](../../images/EAR_apps.png)
+![EAR loops data source](../../images/EAR_loops.png)
+
+## Import the Dashboard
+
+Go to the left menu, Dashboard, and select the Import option. This option allows to upload or select a json file with pre-specified graphs, tables, etc. Graphs are associated with data sources, this is the reason why the name of the data source cannot be changed. 
+
+## Get your data for visualization
+
+Select one of the jobs you have executed during this tutorial, in the example one tensorflow (as GPU example) and Palabos (as CPU use case), In that case you can 
+decide the csv filenames since we will copy later in the ear\_data\_apps.csv and ear\_data\_loops.csv files. 
+
+```
+eacct -j 5687690 -l -c tensorflow.csv
+eacct -j 5687690 -r -c tensorflow_loops.csv
+eacct -j 5843328 -l -c palabos.csv
+eacct -j 5843328 -r -c palabos_loops.csv
+```
+
+Copy from snellius to you local PC or laptop and update the data sources files with data from the application you want to visualize, palabos in the example. 
+
+```
+scp your_user@snellius.surf.nl:path_to_palabos_data/palabos*.csv .
+scp your_user@snellius.surf.nl:path_to_tensorflow_data/tensorflow*.csv .
+cp palabos.csv ear_data_apps.csv
+cp palabos_loops.csv ear_data_loops.csv
+```
+
+After that, you can refresh the url and palabos data should be visualized.
+
+
 ## ear-job-analytics
 
 A tool to automatically read and visualise data provided by the EAR software. ear-analytics is a cli program written in Python which lets you plot the EAR data given by some of its commands or by using some report plug-in offered by the EAR Library (EARL). The main visualisation target is to show runtime metrics collected by EARL in a timeline graph. The ear-job-analytics guide can be found in this link [ear-job-analytics](https://github.com/eas4dc/ear-job-analytics). 

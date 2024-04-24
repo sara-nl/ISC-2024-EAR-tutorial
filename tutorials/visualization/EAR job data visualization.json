@@ -1,0 +1,3796 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_EAR_LOOPS",
+      "label": "EAR_loops",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "marcusolsson-csv-datasource",
+      "pluginName": "CSV"
+    },
+    {
+      "name": "DS_EAR_APPS",
+      "label": "EAR_apps",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "marcusolsson-csv-datasource",
+      "pluginName": "CSV"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "barchart",
+      "name": "Bar chart",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "9.3.6"
+    },
+    {
+      "type": "datasource",
+      "id": "marcusolsson-csv-datasource",
+      "name": "CSV",
+      "version": "0.6.3"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 48,
+      "panels": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_LOOPS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 90,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "watt"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 16,
+            "x": 0,
+            "y": 1
+          },
+          "id": 46,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.6",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-csv-datasource",
+                "uid": "${DS_EAR_LOOPS}"
+              },
+              "decimalSeparator": ".",
+              "delimiter": ";",
+              "header": true,
+              "ignoreUnknown": false,
+              "refId": "A",
+              "schema": [
+                {
+                  "name": "DATE",
+                  "type": "string"
+                },
+                {
+                  "name": "GPU0_POWER_W",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU1_POWER_W",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU2_POWER_W",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU3_POWER_W",
+                  "type": "number"
+                }
+              ],
+              "skipRows": 0,
+              "timezone": "Europe/Madrid"
+            }
+          ],
+          "title": "Total GPU power (W) over time",
+          "transformations": [
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "DD-MM-YYYY hh:mm:ss",
+                    "destinationType": "time",
+                    "targetField": "DATE"
+                  }
+                ],
+                "fields": {}
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_LOOPS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 90,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 16,
+            "x": 0,
+            "y": 8
+          },
+          "id": 44,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.6",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-csv-datasource",
+                "uid": "${DS_EAR_LOOPS}"
+              },
+              "decimalSeparator": ".",
+              "delimiter": ";",
+              "header": true,
+              "ignoreUnknown": false,
+              "refId": "A",
+              "schema": [
+                {
+                  "name": "DATE",
+                  "type": "string"
+                },
+                {
+                  "name": "GPU0_UTIL_PERC",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU1_UTIL_PERC",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU2_UTIL_PERC",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU3_UTIL_PERC",
+                  "type": "number"
+                }
+              ],
+              "skipRows": 0,
+              "timezone": "Europe/Madrid"
+            }
+          ],
+          "title": "Total GPU utilization (max=400%) over time",
+          "transformations": [
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "DD-MM-YYYY hh:mm:ss",
+                    "destinationType": "time",
+                    "targetField": "DATE"
+                  }
+                ],
+                "fields": {}
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_LOOPS}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 90,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "smooth",
+                "lineStyle": {
+                  "fill": "solid"
+                },
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "auto",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "normal"
+                },
+                "thresholdsStyle": {
+                  "mode": "dashed"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 16,
+            "x": 0,
+            "y": 15
+          },
+          "id": 45,
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "single",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.3.6",
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-csv-datasource",
+                "uid": "${DS_EAR_LOOPS}"
+              },
+              "decimalSeparator": ".",
+              "delimiter": ";",
+              "header": true,
+              "ignoreUnknown": false,
+              "refId": "A",
+              "schema": [
+                {
+                  "name": "DATE",
+                  "type": "string"
+                },
+                {
+                  "name": "GPU0_MEM_UTIL_PERC",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU1_MEM_UTIL_PERC",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU2_MEM_UTIL_PERC",
+                  "type": "number"
+                },
+                {
+                  "name": "GPU3_MEM_UTIL_PERC",
+                  "type": "number"
+                }
+              ],
+              "skipRows": 0,
+              "timezone": "Europe/Madrid"
+            }
+          ],
+          "title": "Total GPU memory utilization (max=400%) over time",
+          "transformations": [
+            {
+              "id": "convertFieldType",
+              "options": {
+                "conversions": [
+                  {
+                    "dateFormat": "DD-MM-YYYY hh:mm:ss",
+                    "destinationType": "time",
+                    "targetField": "DATE"
+                  }
+                ],
+                "fields": {}
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "timeseries"
+        }
+      ],
+      "title": "Time lines-GPU",
+      "type": "row"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 28,
+      "panels": [],
+      "title": "Time lines-CPU",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_LOOPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 90,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "displayName": "Node power",
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 11,
+        "x": 0,
+        "y": 2
+      },
+      "id": 40,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_LOOPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "DATE",
+              "type": "string"
+            },
+            {
+              "name": "DC_NODE_POWER_W",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0,
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "title": "DC Node power (W) over time",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "DD-MM-YYYY hh:mm:ss",
+                "destinationType": "time",
+                "targetField": "DATE"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_LOOPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 90,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "displayName": "CPI",
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 11,
+        "x": 11,
+        "y": 2
+      },
+      "id": 50,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_LOOPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "DATE",
+              "type": "string"
+            },
+            {
+              "name": "CPI",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0,
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "title": "CPI over time",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "DD-MM-YYYY hh:mm:ss",
+                "destinationType": "time",
+                "targetField": "DATE"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_LOOPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 90,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "normal"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "watt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 11,
+        "x": 0,
+        "y": 8
+      },
+      "id": 43,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_LOOPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "DATE",
+              "type": "string"
+            },
+            {
+              "name": "PCK_POWER_W",
+              "type": "number"
+            },
+            {
+              "name": "DRAM_POWER_W",
+              "type": "number"
+            },
+            {
+              "name": "GPU0_POWER_W",
+              "type": "number"
+            },
+            {
+              "name": "GPU1_POWER_W",
+              "type": "number"
+            },
+            {
+              "name": "GPU2_POWER_W",
+              "type": "number"
+            },
+            {
+              "name": "GPU3_POWER_W",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0,
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "title": "Power per device (W) over time",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "DD-MM-YYYY hh:mm:ss",
+                "destinationType": "time",
+                "targetField": "DATE"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_LOOPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 90,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "dashed"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "GBs"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 11,
+        "x": 11,
+        "y": 8
+      },
+      "id": 42,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_LOOPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "DATE",
+              "type": "string"
+            },
+            {
+              "name": "MEM_GBS",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0,
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "title": "Main memory GB/sec over time",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "DD-MM-YYYY hh:mm:ss",
+                "destinationType": "time",
+                "targetField": "DATE"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 24,
+      "panels": [],
+      "title": "Data",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "filterable": true,
+            "inspect": true
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "NODENAME"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Node"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "JOBNAME"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Job name"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "USER_ACC"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Account"
+              },
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ENERGY_TAG"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "GROUPID"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "POLICY_TH"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AVG_CPUFREQ_KHZ * 1000"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "hertz"
+              },
+              {
+                "id": "displayName",
+                "value": "Avg.CPU freq.(GHz)"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AVG_CPUFREQ_KHZ"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DEF_FREQ_KHZ * 1000"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "hertz"
+              },
+              {
+                "id": "custom.align",
+                "value": "auto"
+              },
+              {
+                "id": "displayName",
+                "value": "Def. Freq (GHz)"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DEF_FREQ_KHZ"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AVG_IMCFREQ_KHZ"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L1_MISSES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L2_MISSES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L3_MISSES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CYCLES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "INSTRUCTIONS"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STEPID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 87
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "JOBID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 91
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Node"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 92
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "APPID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 88
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "USERID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Job name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 97
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Account"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 98
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "POLICY"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "gradient-gauge"
+              },
+              {
+                "id": "unit",
+                "value": "none"
+              },
+              {
+                "id": "max",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TPI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              },
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM_GBS"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 113
+              },
+              {
+                "id": "displayName",
+                "value": "Memory BW (GB/sec)"
+              },
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "IO_MBS"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              },
+              {
+                "id": "decimals",
+                "value": 2
+              },
+              {
+                "id": "displayName",
+                "value": "IO (MB/sec.)"
+              },
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PERC_MPI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 117
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "gradient-gauge"
+              },
+              {
+                "id": "displayName",
+                "value": "Perc. MPI"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory BW (GB/sec)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 176
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TIME_SEC"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "displayName",
+                "value": "Elapsed time"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DRAM_POWER_W"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PCK_POWER_W"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DC_NODE_POWER_W"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watt"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "gradient-gauge"
+              },
+              {
+                "id": "max",
+                "value": 400
+              },
+              {
+                "id": "displayName",
+                "value": "Avg.Power"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 300
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU-GFLOPS"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Avg.CPU freq.(GHz)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 127
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 26,
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "mean"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "skipRows": 0
+        }
+      ],
+      "title": "EAR collected data per-job/step/node",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "AVG_CPUFREQ_KHZ",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "AVG_CPUFREQ_KHZ"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "DEF_FREQ_KHZ",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "AVG_IMCFREQ_KHZ": true,
+              "ENERGY_TAG": true,
+              "GROUPID": true,
+              "POLICY": true,
+              "POLICY_TH": true,
+              "USERID": true,
+              "USER_ACC": true
+            },
+            "indexByName": {
+              "APPID": 3,
+              "AVG_CPUFREQ_KHZ": 11,
+              "AVG_CPUFREQ_KHZ * 1000": 12,
+              "AVG_IMCFREQ_KHZ": 13,
+              "CPI": 18,
+              "CPU-GFLOPS": 23,
+              "CYCLES": 26,
+              "DC_NODE_POWER_W": 17,
+              "DEF_FREQ_KHZ": 14,
+              "DEF_FREQ_KHZ * 1000": 15,
+              "DPOPS_128": 36,
+              "DPOPS_512": 38,
+              "DPOPS_SINGLE": 35,
+              "DP_256": 37,
+              "DRAM_POWER_W": 24,
+              "ENERGY_TAG": 8,
+              "GROUPID": 5,
+              "INSTRUCTIONS": 27,
+              "IO_MBS": 21,
+              "JOBID": 0,
+              "JOBNAME": 6,
+              "L1_MISSES": 28,
+              "L2_MISSES": 29,
+              "L3_MISSES": 30,
+              "MEM_GBS": 20,
+              "NODENAME": 2,
+              "PCK_POWER_W": 25,
+              "PERC_MPI": 22,
+              "POLICY": 9,
+              "POLICY_TH": 10,
+              "SPOPS_128": 32,
+              "SPOPS_256": 33,
+              "SPOPS_512": 34,
+              "SPOPS_SINGLE": 31,
+              "STEPID": 1,
+              "TIME_SEC": 16,
+              "TPI": 19,
+              "USERID": 4,
+              "USER_ACC": 7
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "JOBID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "filterable": true,
+            "inspect": true
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "NODENAME"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Node"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "JOBNAME"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Job name"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "USER_ACC"
+            },
+            "properties": [
+              {
+                "id": "displayName",
+                "value": "Account"
+              },
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ENERGY_TAG"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "GROUPID"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "POLICY_TH"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AVG_CPUFREQ_KHZ * 1000"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "hertz"
+              },
+              {
+                "id": "displayName",
+                "value": "Avg.CPU freq.(GHz)"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AVG_CPUFREQ_KHZ"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DEF_FREQ_KHZ * 1000"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "hertz"
+              },
+              {
+                "id": "custom.align",
+                "value": "auto"
+              },
+              {
+                "id": "displayName",
+                "value": "Def. Freq (GHz)"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DEF_FREQ_KHZ"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "AVG_IMCFREQ_KHZ"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L1_MISSES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L2_MISSES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "L3_MISSES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CYCLES"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "INSTRUCTIONS"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STEPID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 87
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "JOBID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 117
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Node"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 92
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "APPID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 88
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "USERID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Job name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 155
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Account"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 98
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "POLICY"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 95
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "gradient-gauge"
+              },
+              {
+                "id": "unit",
+                "value": "none"
+              },
+              {
+                "id": "max",
+                "value": 2
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TPI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 101
+              },
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM_GBS"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 113
+              },
+              {
+                "id": "displayName",
+                "value": "Memory BW (GB/sec)"
+              },
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "IO_MBS"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 105
+              },
+              {
+                "id": "decimals",
+                "value": 2
+              },
+              {
+                "id": "displayName",
+                "value": "IO (MB/sec.)"
+              },
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PERC_MPI"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 117
+              },
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "gradient-gauge"
+              },
+              {
+                "id": "displayName",
+                "value": "Perc. MPI"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Memory BW (GB/sec)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 176
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TIME_SEC"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "displayName",
+                "value": "Elapsed time"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DRAM_POWER_W"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PCK_POWER_W"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DC_NODE_POWER_W"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watt"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "gradient-gauge"
+              },
+              {
+                "id": "max",
+                "value": 400
+              },
+              {
+                "id": "displayName",
+                "value": "Avg.Power"
+              },
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "green",
+                      "value": null
+                    },
+                    {
+                      "color": "red",
+                      "value": 300
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPU-GFLOPS"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "none"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "TIME_SEC (max)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "s"
+              },
+              {
+                "id": "custom.width",
+                "value": 118
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DC_NODE_POWER_W (sum)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watt"
+              },
+              {
+                "id": "custom.width",
+                "value": 213
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "lcd-gauge"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM_GBS (sum)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "GBs"
+              },
+              {
+                "id": "custom.width",
+                "value": 185
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "lcd-gauge"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PERC_MPI (mean)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "lcd-gauge"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "CPI (mean)"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 140
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "lcd-gauge"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "STEPID"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "JOBID"
+            },
+            "properties": [
+              {
+                "id": "decimals",
+                "value": 0
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 10,
+        "w": 17,
+        "x": 3,
+        "y": 25
+      },
+      "id": 32,
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "mean"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "JOBID",
+              "type": "number"
+            },
+            {
+              "name": "STEPID",
+              "type": "number"
+            },
+            {
+              "name": "APPID",
+              "type": "number"
+            },
+            {
+              "name": "DC_NODE_POWER_W",
+              "type": "number"
+            },
+            {
+              "name": "CPI",
+              "type": "number"
+            },
+            {
+              "name": "PERC_MPI",
+              "type": "number"
+            },
+            {
+              "name": "MEM_GBS",
+              "type": "number"
+            },
+            {
+              "name": "TIME_SEC",
+              "type": "number"
+            },
+            {
+              "name": "JOBNAME",
+              "type": "string"
+            }
+          ],
+          "skipRows": 0
+        }
+      ],
+      "title": "EAR collected data per jobid-stepid",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "AVG_CPUFREQ_KHZ",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "AVG_CPUFREQ_KHZ"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "binary": {
+              "left": "DEF_FREQ_KHZ",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "indexByName": {
+              "APPID": 3,
+              "AVG_CPUFREQ_KHZ": 11,
+              "AVG_CPUFREQ_KHZ * 1000": 12,
+              "AVG_IMCFREQ_KHZ": 13,
+              "CPI": 18,
+              "CPU-GFLOPS": 23,
+              "CYCLES": 26,
+              "DC_NODE_POWER_W": 17,
+              "DEF_FREQ_KHZ": 14,
+              "DEF_FREQ_KHZ * 1000": 15,
+              "DPOPS_128": 36,
+              "DPOPS_512": 38,
+              "DPOPS_SINGLE": 35,
+              "DP_256": 37,
+              "DRAM_POWER_W": 24,
+              "ENERGY_TAG": 8,
+              "GROUPID": 5,
+              "INSTRUCTIONS": 27,
+              "IO_MBS": 21,
+              "JOBID": 1,
+              "JOBNAME": 6,
+              "L1_MISSES": 28,
+              "L2_MISSES": 29,
+              "L3_MISSES": 30,
+              "MEM_GBS": 20,
+              "NODENAME": 0,
+              "PCK_POWER_W": 25,
+              "PERC_MPI": 22,
+              "POLICY": 9,
+              "POLICY_TH": 10,
+              "SPOPS_128": 32,
+              "SPOPS_256": 33,
+              "SPOPS_512": 34,
+              "SPOPS_SINGLE": 31,
+              "STEPID": 2,
+              "TIME_SEC": 16,
+              "TPI": 19,
+              "USERID": 4,
+              "USER_ACC": 7
+            },
+            "renameByName": {}
+          }
+        },
+        {
+          "id": "groupBy",
+          "options": {
+            "fields": {
+              "CPI": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "DC_NODE_POWER_W": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "JOBID": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "JOBNAME": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "MEM_GBS": {
+                "aggregations": [
+                  "sum"
+                ],
+                "operation": "aggregate"
+              },
+              "PERC_MPI": {
+                "aggregations": [
+                  "mean"
+                ],
+                "operation": "aggregate"
+              },
+              "STEPID": {
+                "aggregations": [],
+                "operation": "groupby"
+              },
+              "TIME_SEC": {
+                "aggregations": [
+                  "max"
+                ],
+                "operation": "aggregate"
+              }
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": 4294967291
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 35
+      },
+      "id": 22,
+      "panels": [],
+      "title": "Graphs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "GFLOPS/Watt",
+            "axisPlacement": "auto",
+            "axisSoftMax": 0.18,
+            "fillOpacity": 80,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "id": 16,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {
+          "valueSize": 20
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "STEPID",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "GFLOPS/W",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0,
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "title": "GFLops/Watt per Stepid",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "GFLOPS/Watt",
+            "binary": {
+              "left": "CPU-GFLOPS",
+              "operator": "/",
+              "reducer": "sum",
+              "right": "DC_NODE_POWER_W"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DC_NODE_POWER_W"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "watt"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "id": 4,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "STEPID",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "DC_NODE_POWER_W",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0
+        }
+      ],
+      "title": "Accumulated Power  (W)per Stepid ",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": -57,
+            "fillOpacity": 80,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Energy (J)"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "joule"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 44
+      },
+      "id": 2,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {
+          "valueSize": 20
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "STEPID",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "9.3.6",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "ENERGY(J)",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0,
+          "timezone": "Europe/Madrid"
+        }
+      ],
+      "title": "Accumulated Energy per Stepid",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "Energy (J)",
+            "binary": {
+              "left": "TIME_SEC",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "DC_NODE_POWER_W"
+            },
+            "mode": "binary",
+            "reduce": {
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "GHz",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "cpufreq"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "hertz"
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 2999981000
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 45
+      },
+      "id": 8,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {
+          "valueSize": 20
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "STEPID",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "cpufreq",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0
+        }
+      ],
+      "title": "AVG CPU frequency",
+      "transformations": [
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "cpufreq",
+            "binary": {
+              "left": "DEF_FREQ_KHZ",
+              "operator": "*",
+              "reducer": "sum",
+              "right": "1000"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "AVG_CPUFREQ_KHZ"
+              ],
+              "reducer": "sum"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "MEM_GBS"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "GBs"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 51
+      },
+      "id": 18,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {
+          "valueSize": 20
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "STEPID",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "MEM_GBS",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0
+        }
+      ],
+      "title": "Memory Bandwith (GB/Sec)",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PERC_MPI"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "mode": "continuous-GrYlRd"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 52
+      },
+      "id": 33,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {
+          "valueSize": 20
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "STEPID",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "PERC_MPI",
+              "type": "number"
+            }
+          ],
+          "skipRows": 0
+        }
+      ],
+      "title": "Percentage MPI.",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-csv-datasource",
+        "uid": "${DS_EAR_APPS}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-GrYlRd"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 11,
+        "x": 0,
+        "y": 58
+      },
+      "id": 20,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "orientation": "horizontal",
+        "showValue": "always",
+        "stacking": "none",
+        "text": {
+          "valueSize": 20
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "STEPID",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-csv-datasource",
+            "uid": "${DS_EAR_APPS}"
+          },
+          "decimalSeparator": ".",
+          "delimiter": ";",
+          "header": true,
+          "ignoreUnknown": false,
+          "refId": "A",
+          "schema": [
+            {
+              "name": "CPI",
+              "type": "number"
+            },
+            {
+              "name": "NODENAME",
+              "type": "string"
+            }
+          ],
+          "skipRows": 0
+        }
+      ],
+      "title": "CPI",
+      "transformations": [
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "NODENAME"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "field": "STEPID"
+              }
+            ]
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "4294967291"
+                  }
+                },
+                "fieldName": "STEPID"
+              }
+            ],
+            "match": "all",
+            "type": "exclude"
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "2024-04-10T13:53:31.000Z",
+    "to": "2024-04-10T14:21:22.000Z"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "EAR job data visualization",
+  "uid": "LfSZiv-Sk",
+  "version": 9,
+  "weekStart": ""
+}
