@@ -44,15 +44,15 @@ Next steps are:
 
 In the left menu, select Configuration/Data source/Add data source. Select CSV data source from the list of options. 
 
-![CSV data source](../../images/.png)
+![CSV data source](../../images/csv_data_source.jpg)
 
 We will create two data sources, one for application data and the other for runtime metrics (“loops” data). For each one, select “Local” , path has to be a “public” folder, in the example /Users/julita.corbalan/Public/LOGS . Complete and select “Save&test”. The name of the data source cannot be modified and neither the file names with data. 
 
 The name of the application data source is EAR\_apps and the filename is ear\_data\_apps.csv, and the runtime data source is EAR\_loops and the filename ear\_data\_loops.csv
 
 
-![EAR application data source](../../images/EAR_apps.png)
-![EAR loops data source](../../images/EAR_loops.png)
+![EAR application data source](../../images/EAR_apps.jpg)
+![EAR loops data source](../../images/EAR_loops.jpg)
 
 ## Import the Dashboard
 
