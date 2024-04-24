@@ -4,5 +4,6 @@
 2. [EAR Monitoring tutorial](monitoring_ear/README.md)
 3. [DVFS tutorial](dvfs/README.md)
 4. [Energy Optimization tutorial](policies/README.md)
+5. [EAR Data visualization](visualization/README.md)
 
 
