@@ -35,10 +35,10 @@ The user/passs by default is admin/admin. You will be prompted to change them bu
 
 Next steps are:
 
-1 - Create the Data source 
-2 - Import the JSON file to create the visualization dashboards
-3 - Copy the CSV files with data for jobs and runtime metrics (must be copied with pre-defined filenames)
-4 - Refresh the URL
+- Create the Data source 
+- Import the JSON file to create the visualization dashboards
+- Copy the CSV files with data for jobs and runtime metrics (must be copied with pre-defined filenames)
+- Refresh the URL
 
 ## Create the Data source
 
@@ -56,7 +56,7 @@ The name of the application data source is EAR\_apps and the filename is ear\_da
 
 ## Import the Dashboard
 
-Go to the left menu, Dashboard, and select the Import option. This option allows to upload or select a json file with pre-specified graphs, tables, etc. Graphs are associated with data sources, this is the reason why the name of the data source cannot be changed. 
+Go to the left menu, Dashboard, and select the Import option. This option allows to upload or select a json file with pre-specified graphs, tables, etc. Graphs are associated with data sources, this is the reason why the name of the data source cannot be changed.  [EAR data visualization.jso,](./EAR job data visualization.json)
 
 ## Get your data for visualization
 
