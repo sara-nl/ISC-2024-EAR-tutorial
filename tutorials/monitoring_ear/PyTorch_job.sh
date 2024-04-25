@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #SBATCH -p gpu
-#SBATCH --gpus-per-node=1
 #SBATCH -t 00:15:00
-#SBATCH --cpus-per-task=4
-#SBATCH --exclusive
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=18
+#SBATCH --gpus-per-node=1
 
 #SBATCH --output=PyTorch.%j.out
 #SBATCH --error=PyTorch.%j.err
@@ -14,7 +14,7 @@ module load 2023
 module load PyTorch/2.1.2-foss-2023a-CUDA-12.1.1
 
 # ENV variable needed to report "loops" to the EARDB
-# export EARL_REPORT_LOOPS=1
+#export EARL_REPORT_LOOPS=1
 
 # location of the binaries for the course
 PROJECT_DIR=/projects/0/energy-course
@@ -38,13 +38,13 @@ PROJECT_DIR=/projects/0/energy-course
 
 
 # Resnet50 
-srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet50
+srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet50 --num-iters 200
 
 # Resnet50 with mixed precision
-srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet50 --use-amp
+srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet50 --use-amp  --num-iters 200
 
 # Resnet101 (larger model) 
-srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet101
+srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet101  --num-iters 200
 
 # Resnet101 (larger model) with mixed precision
-srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet101 --use-amp
+srun python $PROJECT_DIR/PyTorch/pytorch_syntethic_benchmark.py --batch-size=32 --model=resnet101 --use-amp  --num-iters 200
