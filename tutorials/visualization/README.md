@@ -88,9 +88,8 @@ After that, you can refresh the url and palabos data should be visualized.
 
 A tool to automatically read and visualise data provided by the EAR software. ear-analytics is a cli program written in Python which lets you plot the EAR data given by some of its commands or by using some report plug-in offered by the EAR Library (EARL). The main visualisation target is to show runtime metrics collected by EARL in a timeline graph. The ear-job-analytics guide can be found in this link [ear-job-analytics](https://github.com/eas4dc/ear-job-analytics). 
 
-PENDING TO re-generate
 
-You can install the tool locally or in snellius. The zip file to install the tool can be found at /projects/0/energy-course/ear-job-anaytics/ear-job-analytics-main.zip
+You can install the tool locally or in snellius. The zip file to install the tool can be found at /projects/0/energy-course/ear-job-anaytics/ear-job-analytics-main.tar.gz
 Unzip the file and execute the following commands
 
 ```
@@ -104,7 +103,7 @@ pip install .
 To create your runtime graphs for example for jobid 5687690 step 0, you can execute the following command (replace tensor with the desired suffix for filenames to be used).Add all the metric at the end separated by spaces. To see the whole list of metrics execute ear-job-analytics -h
 
 ```
- ear-job-analytics --format runtime -j 5687690 -s 0 -l -r -o tensor.png -m cpi gflops gbs dc\_power gpu\_power gpu\_util
+ ear-job-analytics --format runtime -j 5687690 -s 0 -l -r -o tensor.png -m cpi gflops gbs dc_power gpu_power gpu_util
 ```
 
 After that, you will get the following image files;
