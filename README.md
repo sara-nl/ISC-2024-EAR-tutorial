@@ -6,8 +6,8 @@ https://app.swapcard.com/event/isc-high-performance-2024/planning/UGxhbm5pbmdfMT
 ### May 12 2024 (start 14:00 end 18:00)
 - (14:00-15:00) Welcome  & Introduction to EAR
 - (15:00-16:30) Energy Monitoring (Basic use cases)
-   - Running CPU kernals with EAR
-   - Job energy accounting
+   - Running CPU/GPU kernals with EAR
+   - Job energy monitoring & accounting
    - Energy efficiency vs resource consumption
    - Energy efficiency vs architecture
    - CPU DVFS
