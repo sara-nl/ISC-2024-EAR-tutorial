@@ -117,7 +117,7 @@ runtime_cpi-palabos_8.png  runtime_dc_power-palabos_8.png  runtime_gbs-palabos_8
 
 In that case, the job was a single node job running tensorflow. The graphs looks like 
 
-![DC\_power](../../images/runtime_dc_power-palabos_8.pngg)
+![DC\_power](../../images/runtime_dc_power-palabos_8.png)
 ![Cycles per Instructions (CPI)](../../images/runtime_cpi-palabos_8.png)
 ![Memory GBS](../../images/runtime_gbs-palabos_8.png)
 ![IO MB/s](../../images/runtime_io_mbs-palabos_8.png)
