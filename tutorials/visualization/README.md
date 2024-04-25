@@ -56,7 +56,7 @@ The name of the application data source is EAR\_apps and the filename is ear\_da
 
 ## Import the Dashboard
 
-Go to the left menu, Dashboard, and select the Import option. This option allows to upload or select a json file with pre-specified graphs, tables, etc. Graphs are associated with data sources, this is the reason why the name of the data source cannot be changed.  [EAR data visualization](./EAR job data visualization.json)
+Go to the left menu, Dashboard, and select the Import option. This option allows to upload or select a json file with pre-specified graphs, tables, etc. Graphs are associated with data sources, this is the reason why the name of the data source cannot be changed.  [EAR data visualization](EAR_job_data_visualization.json)
 
 
 ## Get your data for visualization
