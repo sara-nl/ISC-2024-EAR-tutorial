@@ -103,22 +103,24 @@ pip install .
 To create your runtime graphs for example for jobid 5687690 step 0, you can execute the following command (replace tensor with the desired suffix for filenames to be used).Add all the metric at the end separated by spaces. To see the whole list of metrics execute ear-job-analytics -h
 
 ```
- ear-job-analytics --format runtime -j 5687690 -s 0 -l -r -o tensor.png -m cpi gflops gbs dc_power gpu_power gpu_util
+ear-job-analytics --format runtime -j 6043213 -s 0 -r -t palabos_8_nodes -o palabos_8.png -m cpi gflops gbs dc_power pck_power perc_mpi io_mbs
 ```
 
 After that, you will get the following image files;
 
 ```
- [user@int6 ear-job-analytics-main]$ ls \*.png
- runtime\_cpi-tensor.png  runtime\_dc\_power-tensor.png  runtime\_gbs-tensor.png  runtime\_gflops-tensor.png  runtime\_gpu\_power-tensor.png  runtime\_gpu\_util-tensor.png
+[user@int5 traces]$ ls *palabos_8*
+runtime_cpi-palabos_8.png  runtime_dc_power-palabos_8.png  runtime_gbs-palabos_8.png  runtime_gflops-palabos_8.png  runtime_io_mbs-palabos_8.png  runtime_pck_power-palabos_8.png  runtime_perc_mpi-palabos_8.png
+
 ```
 
 
 In that case, the job was a single node job running tensorflow. The graphs looks like 
 
-![DC\_power](../../images/runtime_dc_power-tensor.png)
-![CPI](../../images/runtime_cpi-tensor.png)
-![GPU power](../../images/runtime_gpu_power-tensor.png)
+![DC\_power](../../images/runtime_dc_power-palabos_8.pngg)
+![Cycles per Instructions (CPI)](../../images/runtime_cpi-palabos_8.png)
+![Memory GBS](../../images/runtime_gbs-tensor.png)
+![IO MB/s](../../images/runtime_io_mbs-tensor.png)
 
 
 
