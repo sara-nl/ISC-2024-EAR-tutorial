@@ -4,10 +4,17 @@ https://app.swapcard.com/event/isc-high-performance-2024/planning/UGxhbm5pbmdfMT
 
 ## Schedule
 ### May 12 2024 (start 14:00 end 18:00)
-- (14:00-15:00) Introduction 
-- (15:00-16:00) Energy Monitoring
-- (16:00-17:00) Energy Optimization
-- (17:00-18:00) Visualization
+- (14:00-15:00) Welcome  & Introduction to EAR
+- (15:00-16:30) Energy Monitoring (Basic use cases)
+   - Running CPU kernals with EAR
+   - Job energy accounting
+   - Energy efficiency vs resource consumption
+   - Energy efficiency vs architecture
+   - CPU DVFS
+- (16:30-18:00) Energy Optimization (Advanced use cases)
+   - Singularity
+   - Energy optimization policies
+   - Graphana visualization
 
 ## Practical information
 - [How to connect to Snellius](#how-to-connect-to-snellius)
