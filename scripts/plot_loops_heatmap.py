@@ -72,7 +72,7 @@ for value in values:
     elif "IO_MBS" in value:
         vmin=0
         vmax=100
-        fixvmap=True
+        fixvmap=False
         
     if "GUTIL" in value:
         vmin=0
@@ -82,26 +82,26 @@ for value in values:
     elif "TPI" in value:
         vmin=0
         vmax=100
-        fixvmap=True
+        fixvmap=False
         
     elif "CPI" in value:
         fixvmap=True
         vmin=0
-        vmax=6
+        vmax=1
     elif "GFLOPS" in value:
         vmin=0
         vmax=40
-        fixvmap=True
+        fixvmap=False
     elif "MEM_GBS" in value:
         fixvmap=True
         vmin=0
-        vmax=150
+        vmax=300
     elif "DC-NODE-POWER" in value:
-        fixvmap=True
+        fixvmap=False
         vmin=550
         vmax=2000
     elif "PCK-POWER" in value:
-        fixvmap=True
+        fixvmap=False
         vmin=200
         vmax=600
     
@@ -132,9 +132,14 @@ for value in values:
     axs[idx].set_xlabel("")
 
 
-axs[idx].set_xlabel("Iteration")
+axs[idx].set_xlabel("EAR sample")
 
-axs[idx].set_xlim(0,6)
+for series_name, series in data.items():
+    if len(series) == series.isna().sum():
+        xmax = series_name
+        axs[idx].set_xlim(0,xmax)
+        break
 
-plt.savefig("loops.png",dpi=200)
+
+plt.savefig(str(sys.argv[1]).replace(".csv",""),dpi=200)
 
