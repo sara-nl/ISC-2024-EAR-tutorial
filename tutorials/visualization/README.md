@@ -123,6 +123,19 @@ In that case, the job was a single node job running tensorflow. The graphs looks
 ![IO MB/s](../../images/runtime_io_mbs-palabos_8.png)
 
 
+To help you in the creation of traces we have prepared a script with some pre-defined metrics and options. It is available at /projects/0/energy-course/ear-job-anaytics/create\_trace.sh and [create_trace.sh](../../scripts/create_trace.sh). Execute create\_trace.sh help to see the supported options.  
+The tools generates the images using a gradient of colours that can be per-application or per-architecture. If you want to understand/visualize only 1 use case, it is better to use per-application limits, for example:
 
+```
+./create_trace.sh 6041751 0 palabos_4_me cpu app
+```
 
+But if you want to compare different executions, it is better to use same limits, for example
+
+```
+./create_trace.sh 6041751 0 palabos_4_me cpu rome
+./create_trace.sh 6041751 1 palabos_4_mon cpu rome
+```
+
+In that case, you can compare the execution of step 0, with min\_energy policy with step 1 with  monitoring. When using specific configurations, a json file with limits is used. Some pre-created json files for rome, genoa and gpu partition are available at /projects/0/energy-course/ear-job-anaytics/config\_files and used by the create\_trace.sh script.
 
