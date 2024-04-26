@@ -14,7 +14,7 @@ https://app.swapcard.com/event/isc-high-performance-2024/planning/UGxhbm5pbmdfMT
 - (16:30-18:00) Energy Optimization (Advanced use cases)
    - Singularity
    - Energy optimization policies
-   - Graphana visualization
+   - EAR data visualization
 
 ## Practical information
 - [How to connect to Snellius](#how-to-connect-to-snellius)
