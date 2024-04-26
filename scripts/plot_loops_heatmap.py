@@ -140,6 +140,5 @@ for series_name, series in data.items():
         axs[idx].set_xlim(0,xmax)
         break
 
-
 plt.savefig(str(sys.argv[1]).replace(".csv",""),dpi=200)
 
