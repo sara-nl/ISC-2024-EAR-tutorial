@@ -4,10 +4,27 @@ from matplotlib import pyplot as plt
 import numpy as np
 import sys
 
-if not sys.argv[1]:
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-c", "--csvin", type=str,
+                    help='input "loops" csv file for plottin')
+parser.add_argument("--gpu", action="store_true",
+                    help="Plot GPU metrics")
+
+args = parser.parse_args()
+
+
+if args.csvin == None:
     print("You need to pass this script a loop.csv file")
     print("i.e. output from eacct -j 12348 -r -c loops.csv")
-    exit (1)
+elif "csv" in args.csvin:
+    print("Creaing Plot for file " + args.csvin)
+else:
+    print("Give me a .csv file please")
+    exit(1)
+
+
+
 
 
 def justify(a, invalid_val=0, axis=1, side='left'):    
@@ -40,7 +57,7 @@ def justify(a, invalid_val=0, axis=1, side='left'):
         out.T[justified_mask.T] = a.T[mask.T]
     return out
 
-loop_data = pd.read_csv(sys.argv[1],sep=";")
+loop_data = pd.read_csv(args.csvin,sep=";")
 df = loop_data
 
 plt.close()
@@ -48,7 +65,34 @@ plt.close()
 cmap_perf = "magma"
 cmap_powr = "viridis"
 
-values = np.array(['TPI',
+
+
+if args.gpu:
+    active_gpus = []
+    if df['GPU0_POWER_W'].mean() > 0:
+        active_gpus.append("GPU0")
+    if df['GPU1_POWER_W'].mean() > 0:
+        active_gpus.append("GPU1")
+    if df['GPU2_POWER_W'].mean() > 0:
+        active_gpus.append("GPU2")
+    if df['GPU3_POWER_W'].mean() > 0:
+        active_gpus.append("GPU3")
+
+    values = []
+    for active_gpu in active_gpus:
+        values.append(active_gpu + "_POWER_W")
+    for active_gpu in active_gpus:
+        values.append(active_gpu + "_UTIL_PERC")
+    for active_gpu in active_gpus:
+        values.append(active_gpu + "_MEM_UTIL_PERC")
+    
+    values = np.array(values)
+
+    if len(values) ==0:
+        print("No GPU power detected in .csv")
+        exit()
+else:
+    values = np.array(['TPI',
                    'CPI',
                    'MEM_GBS',
                    'PERC_MPI',
@@ -74,9 +118,14 @@ for value in values:
         vmax=100
         fixvmap=False
         
-    if "GUTIL" in value:
+    elif "UTIL_PERC" in value:
         vmin=0
         vmax=100
+        fixvmap=True
+        
+    elif ("GPU" in value) and ("POWER_W" in value):
+        vmin=0
+        vmax=400
         fixvmap=True
     
     elif "TPI" in value:
@@ -140,5 +189,9 @@ for series_name, series in data.items():
         axs[idx].set_xlim(0,xmax)
         break
 
-plt.savefig(str(sys.argv[1]).replace(".csv",""),dpi=200)
-
+if args.gpu:
+    plt.savefig(args.csvin.replace(".csv","_gpu"),dpi=200)
+    print("Plot saved as " + args.csvin.replace(".csv","_gpu.png"))
+else:
+    plt.savefig(args.csvin.replace(".csv",""),dpi=200)
+    print("Plot saved as " + args.csvin.replace(".csv",".png"))
