@@ -16,11 +16,18 @@ https://app.swapcard.com/event/isc-high-performance-2024/planning/UGxhbm5pbmdfMT
    - Energy optimization policies
    - EAR data visualization
 
+## Tutorials
+The tutorials of this class can be found in the directory [tutorials](https://github.com/sara-nl/ISC-2024-EAR-tutorial/tree/main/tutorials)
+
 ## Practical information
 - [How to connect to Snellius](#how-to-connect-to-snellius)
 - [How to interact with the course.](#how-to-interact-with-the-course)
 
 ### How to connect to Snellius
+
+#### OpenOnDemand
+
+https://ondemand.snellius.surf.nl/
 
 #### SSH
 >Snellius uses a white-list of ip-addresses and only from those locations you can access the system. 
@@ -39,9 +46,6 @@ ssh user@doornode.surfsara.nl
 ```
 The doornode is separate login server, that can be accessed from anywhere in the world: doornode.surfsara.nl (thus using `ssh user@doornode.surfsara.nl`). This server can be accessed with your usual login and password, after which you get a menu with systems that you can login to. Select 'Snellius' and type your password a second time. You are now logged on to Snellius. Please note that you cannot copy files or use X11 when using the door node.
 
-#### OpenOnDemand
-
-https://ondemand.snellius.surf.nl/
 
 
 ### How to interact with the course.

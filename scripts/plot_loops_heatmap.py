@@ -25,8 +25,6 @@ else:
 
 
 
-
-
 def justify(a, invalid_val=0, axis=1, side='left'):    
     """
     Justifies a 2D array
@@ -92,14 +90,14 @@ if args.gpu:
         print("No GPU power detected in .csv")
         exit()
 else:
-    values = np.array(['TPI',
-                   'CPI',
-                   'MEM_GBS',
-                   'PERC_MPI',
-                   'IO_MBS',
-                   'GFLOPS',
-                   'DC_NODE_POWER_W',
-                   "PCK_POWER_W"])
+    values = np.array([
+        'CPI',
+        'TPI',
+        'MEM_GBS',
+        'PERC_MPI',
+        'IO_MBS',
+        'DC_NODE_POWER_W',
+        "PCK_POWER_W"])
 
 
 fig, axs = plt.subplots(len(values), 1,figsize=(8,10),sharex=True)

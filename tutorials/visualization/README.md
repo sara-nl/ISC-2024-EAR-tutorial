@@ -1,10 +1,9 @@
 # EAR data visualization
- This tutorial proposed you to play with EAR data from two points of view: The first one targets job visualization and comparison. To do that we offer you the ear-job-analytics tools. Second one is using Grafana. Grafana is a web browser based tool supporting multiple interfaces. While the first tool generate some static images that can be visualized, used in papers or ppoints, the second one is better to have your own local/remote historical DB.
+In this tutorial we propose you to play around with EAR data from two points of view: The first one targets job visualization and comparison. To do that we offer you the ear-job-analytics tools. Second one is using Grafana. Grafana is a web browser based tool supporting multiple interfaces. While the first tool generate some static images that can be visualized, used in papers or points, the second one is better to have your own local/remote historical DB.
 
 ## ear-job-analytics
 
-A tool to automatically read and visualise data provided by the EAR software. ear-analytics is a cli program written in Python which lets you plot the EAR data given by some of its commands or by using some report plug-in offered by the EAR Library (EARL). The main visualisation target is to show runtime metrics collected by EARL in a timeline graph. The ear-job-analytics guide can be found in this link [ear-job-analytics](https://github.com/eas4dc/ear-job-analytics). 
-
+A tool that automatically reads and visualises data provided by the EAR software. ear-analytics is a cli program written in Python which lets you plot the EAR data given by some of its commands or by using some report plug-in offered by the EAR Library (EARL). The main visualisation target is to show runtime metrics collected by EARL in a timeline graph. 
 
 You can install the tool locally or in snellius. The zip file to install the tool can be found at /projects/0/energy-course/ear-job-anaytics/ear-job-analytics-main.tar.gz
 Unzip the file and execute the following commands
@@ -17,7 +16,7 @@ python -m build
 pip install .
 ```
 
-To create your runtime graphs for example for jobid 5687690 step 0, you can execute the following command (replace tensor with the desired suffix for filenames to be used).Add all the metric at the end separated by spaces. To see the whole list of metrics execute ear-job-analytics -h
+To create runtime graphs, for example, for jobid 5687690 step 0, you can execute the following command. You can append additional metrics at the end separated by spaces. To see the whole list of metrics execute ear-job-analytics -h
 
 ```
 ear-job-analytics --format runtime -j 6043213 -s 0 -r -t palabos_8_nodes -o palabos_8.png -m cpi gflops gbs dc_power pck_power perc_mpi io_mbs
@@ -30,8 +29,6 @@ After that, you will get the following image files;
 runtime_cpi-palabos_8.png  runtime_dc_power-palabos_8.png  runtime_gbs-palabos_8.png  runtime_gflops-palabos_8.png  runtime_io_mbs-palabos_8.png  runtime_pck_power-palabos_8.png  runtime_perc_mpi-palabos_8.png
 
 ```
-
-
 In that case, the job was a single node job running tensorflow. The graphs looks like 
 
 ![DC\_power](../../images/runtime_dc_power-palabos_8.png)
