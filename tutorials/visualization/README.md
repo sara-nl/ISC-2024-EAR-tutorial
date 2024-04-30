@@ -10,15 +10,11 @@ In this tutorial we propose you to play around with EAR data from two points of 
 
 A tool that automatically reads and visualises data provided by the EAR software. ear-analytics is a cli program written in Python which lets you plot the EAR data given by some of its commands or by using some report plug-in offered by the EAR Library (EARL). The main visualisation target is to show runtime metrics collected by EARL in a timeline graph. 
 
-You can install the tool locally or in snellius. The zip file to install the tool can be found at /projects/0/energy-course/ear-job-anaytics/ear-job-analytics-main.tar.gz
-Unzip the file and execute the following commands
+You can load the tool via the following commands:
 
 ```
-module load Python/3.10.4-GCCcore-11.3.0
-pip install -U pip
-pip install build setuptools
-python -m build
-pip install .
+module load 2023
+module load Ear-job-analytics/0.0.1-gfbf-2023a 
 ```
 
 To create runtime graphs, for example, for jobid 5687690 step 0, you can execute the following command. You can append additional metrics at the end separated by spaces. To see the whole list of metrics execute ear-job-analytics -h
