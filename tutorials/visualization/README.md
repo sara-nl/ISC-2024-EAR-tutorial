@@ -1,6 +1,11 @@
 # EAR data visualization
 In this tutorial we propose you to play around with EAR data from two points of view: The first one targets job visualization and comparison. To do that we offer you the ear-job-analytics tools. Second one is using Grafana. Grafana is a web browser based tool supporting multiple interfaces. While the first tool generate some static images that can be visualized, used in papers or points, the second one is better to have your own local/remote historical DB.
 
+## Outline
+
+- [ear-job-analytics](#ear-job-analytics)
+- [Graphana](#Grafana)
+
 ## ear-job-analytics
 
 A tool that automatically reads and visualises data provided by the EAR software. ear-analytics is a cli program written in Python which lets you plot the EAR data given by some of its commands or by using some report plug-in offered by the EAR Library (EARL). The main visualisation target is to show runtime metrics collected by EARL in a timeline graph. 
@@ -94,7 +99,7 @@ Next steps are:
 - Copy the CSV files with data for jobs and runtime metrics (must be copied with pre-defined filenames)
 - Refresh the URL
 
-## Create the Data source
+### Create the Data source
 
 In the left menu, select Configuration/Data source/Add data source. Select CSV data source from the list of options. 
 
