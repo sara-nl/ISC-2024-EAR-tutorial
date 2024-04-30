@@ -1,0 +1,209 @@
+{
+	"metrics" : {
+		"cpi" : {
+			"column_name" : "CPI",
+			"range" : [0.29, 1]
+		},
+		"gflops" : {
+			"column_name" : "GFLOPS",
+			"range" : [3, 300]
+		},
+		"avg_cpufreq" : {
+			"column_name" : "AVG_CPUFREQ_KHZ",
+			"range" : [1.5e6, 2.4e6]
+		},
+		"avg_imcfreq" : {
+			"column_name" : "AVG_IMCFREQ_KHZ",
+			"range" : [1.0e6, 1.8e6]
+		},
+		"def_freq" : {
+			"column_name" : "DEF_FREQ_KHZ",
+			"range" : [1.5e6, 2.4e6]
+		},
+		"tpi" : {
+			"column_name" : "TPI",
+			"range" : [1, 300]
+		},
+		"gbs" : {
+			"column_name" : "MEM_GBS",
+			"range" : [10, 600]
+		},
+		"dc_power" : {
+			"column_name" : "DC_NODE_POWER_W",
+			"range" : [300, 900]
+		},
+		"dram_power" : {
+			"column_name" : "DRAM_POWER_W",
+			"range" : [5, 50]
+		},
+		"pck_power" : {
+			"column_name" : "PCK_POWER_W",
+			"range" : [100, 640]
+		},
+		"perc_mpi" : {
+			"column_name" : "PERC_MPI",
+			"range" : [0, 100]
+		},
+		"gpu_power" : {
+			"column_name" : "GPU(\\d)_POWER_W",
+			"range" : [50, 400]
+		},
+		"gpu_freq" : {
+			"column_name" : "GPU(\\d)_FREQ_KHZ",
+			"range" : [0.8e6, 1.41e6]
+		},
+		"gpu_memfreq" : {
+			"column_name" : "GPU(\\d)_MEM_FREQ_KHZ",
+			"range" : [0.8e6, 1.41e6]
+		},
+		"gpu_util" : {
+			"column_name" : "GPU(\\d)_UTIL_PERC",
+			"range" : [0, 100]
+		},
+		"gpu_memutil" : {
+			"column_name" : "GPU(\\d)_MEM_UTIL_PERC",
+			"range" : [0, 100]
+		},
+		"io_mbs" : {
+			"column_name" : "IO_MBS",
+			"range" : [0, 1000]
+		},
+		"avg_gpu_power" : {
+			"column_name" : "avg_gpu_pwr",
+			"range" : [50, 400]
+		},
+		"tot_gpu_power" : {
+			"column_name" : "tot_gpu_pwr",
+			"range" : [100, 1600]
+		},
+		"avg_gpu_freq" : {
+			"column_name" : "avg_gpu_freq",
+			"range" : [0.8e6, 1.41e6]
+		},
+		"avg_gpu_memfreq" : {
+			"column_name" : "avg_gpu_memfreq",
+			"range" : [0.8e6, 1.41e6]
+		},
+		"avg_gpu_util" : {
+			"column_name" : "avg_gpu_util",
+			"range" : [0, 100]
+		},
+		"avg_gpu_memutil" : {
+			"column_name" : "avg_gpu_memutil",
+			"range" : [0, 100]
+		},
+		"time_sec" : {
+			"column_name" : "TIME_SEC",
+			"display_name" : "Execution time (s)"
+		},
+		"job_step" : {
+			"display_name" : "Job-Step"
+		},
+		"node_count" : {
+			"column_name" : "NODENAME",
+			"display_name" : "# Nodes"
+		},
+		"energy" : {
+			"column_name" : "energy",
+			"display_name" : "Total energy (J)"
+		},
+		"cpu_gflops" : {
+			"column_name" : "CPU-GFLOPS",
+			"display_name" : "Accumulated GFlop/s"
+		},
+		"dcgmi_gr_engine_active" : {
+			"column_name": "GPU(\\d)_1001",
+			"display_name" : "Graphics Engine Activity"
+		},
+		"dcgmi_sm_active" : {
+			"column_name" : "GPU(\\d)_1002",
+			"display_name" : "GPU SM Activity"
+		},
+		"dcgmi_sm_occupancy" : {
+			"column_name" : "GPU(\\d)_1003",
+			"display_name" : "GPU SM Occupancy"
+		},
+		"dcgmi_pipe_tensor_active" : {
+			"column_name" : "GPU(\\d)_1004",
+			"display_name" : "GPU Tensor Activity"
+		},
+		"dcgmi_pipe_fp64_active" : {
+			"column_name" : "GPU(\\d)_1006",
+			"display_name" : "GPU FP64 Engine Activity"
+		},
+		"dcgmi_pipe_fp32_active" : {
+			"column_name" : "GPU(\\d)_1007",
+			"display_name" : "GPU FP32 Engine Activity"
+		},
+		"dcgmi_pipe_fp16_active" : {
+			"column_name" : "GPU(\\d)_1008",
+			"display_name" : "GPU FP16 Engine Activity"
+		},
+		"dcgmi_dram_active" : {
+			"column_name" : "GPU(\\d)_1005",
+			"display_name" : "GPU Memory BW Utilization"
+		},
+		"dcgmi_nvlink_tx_bytes" : {
+			"column_name" : "GPU(\\d)_1011",
+			"display_name" : "NVLink Tx Bandwidth (B/s)"
+		},
+		"dcgmi_nvlink_rx_bytes" : {
+			"column_name" : "GPU(\\d)_1012",
+			"display_name" : "NVLink Rx Bandwidth (B/s)"
+		},
+		"dcgmi_pcie_tx_bytes" : {
+			"column_name" : "GPU(\\d)_1009",
+			"display_name" : "PCIe Tx Bandwidth (B/s)"
+		},
+		"dcgmi_pcie_rx_bytes" : {
+			"column_name" : "GPU(\\d)_1010",
+			"display_name" : "PCIe Rx Bandwidth (B/s)"
+		}
+	},
+	"events" : {
+		"earl_state": {
+			"0": "NO_PERIOD",
+			"1": "FIRST_ITERATION",
+			"2": "EVALUATING_LOCAL_SIGNATURE",
+			"3": "SIGNATURE_STABLE",
+			"4": "PROJECTION_ERROR",
+			"5": "RECOMPUTING_N",
+			"6": "SIGNATURE_HAS_CHANGED",
+			"7": "TEST_LOOP",
+			"8": "EVALUATING_GLOBAL_SIGNATURE"
+		},
+		"optim_accuracy": {
+			"0": "OPT_NOT_READY",
+			"1": "OPT_OK",
+			"2": "OPT_NOT_OK",
+			"3": "OPT_TRY_AGAIN"
+		},
+		"earl_phase": {
+			"1": "APP_COMP_BOUND",
+			"2": "APP_MPI_BOUND",
+			"3": "APP_IO_BOUND",
+			"4": "APP_BUSY_WAITING",
+			"5": "APP_CPU_GPU"
+		}
+	},
+	"phases" : {
+		"comp" : {
+			"display_name" : "Computational",
+			"column_name" : "COMP_PHASE",
+			"sub-phases" : {
+				"cpu_bound" : {
+					"display_name" : "CPU bound",
+					"column_name" : "CPU_BOUND"
+				},
+				"mix" : {
+					"display_name" : "Mix",
+					"column_name" : "MIX_COMP"
+				},
+				"mem_bound" : {
+					"display_name" : "Memory bound",
+					"column_name" : "MEM_BOUND"
+				}
+			}
+		}
+	}
+}
