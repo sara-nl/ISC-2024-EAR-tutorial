@@ -3,10 +3,16 @@ import seaborn as sns
 import pandas as pd
 import sys
 import subprocess
+import argparse
 
-if not sys.argv[1]:
-    print("You need to pass this script a jobid  (or mulitple jobid's)")
-    exit (1)
+
+parser = argparse.ArgumentParser()
+parser.add_argument("-j","--jobid",metavar='N', type=str, nargs='*', help="Pass this script a jobid")
+args = parser.parse_args()
+
+if not args.jobid:
+    print("You need pass this script one jobid")
+    exit(1)
 
 try:
     run_out = subprocess.run('ear-info',capture_output=True)
@@ -17,11 +23,9 @@ except FileNotFoundError:
 
 run_out = subprocess.run('mkdir csvs',shell=True,capture_output=True)
 
-jids = [idx for idx in sys.argv[1:]]
-
 
 count = 0
-for jid in jids:
+for jid in args.jobid:
     cmd = 'eacct -j ' + str(jid) + " -c csvs/ear_out." + str(jid) + ".csv"
     print("Running " + cmd)
     eacct_out = subprocess.run(cmd,shell=True,capture_output=True)
@@ -47,6 +51,7 @@ sns.lineplot(data = data, x = data['DEF'],y = data["ENERGY(J)"], ax = axs[2])
 #axs[1].scatter(data["DEF"], data["POWER(W)"],s=1,alpha=0.75)
 #axs[2].scatter(data["DEF"], data["ENERGY(J)"],s=1,alpha=0.75)
 
+print("Saving Plot to csvs/test.png")
 axs[2].set_xlabel("Defined Freq (GHz)")
 plt.savefig("csvs/test.png")
 data.to_csv("csvs/test_data.csv")

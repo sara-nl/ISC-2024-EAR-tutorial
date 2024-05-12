@@ -19,6 +19,14 @@ https://app.swapcard.com/event/isc-high-performance-2024/planning/UGxhbm5pbmdfMT
 ## Tutorials
 The tutorials of this class can be found in the directory [tutorials](https://github.com/sara-nl/ISC-2024-EAR-tutorial/tree/main/tutorials)
 
+1. [General Monitoring tutorial](tutorials/monitoring_general/README.md)
+2. [EAR Monitoring tutorial](tutorials/monitoring_ear/README.md)
+3. [DVFS tutorial](tutorials/dvfs/README.md)
+4. [Energy Optimization tutorial](tutorials/policies/README.md)
+5. [EAR Data visualization](tutorials/visualization/README.md)
+
+
+
 ## Practical information
 - [How to connect to Snellius](#how-to-connect-to-snellius)
 - [How to interact with the course.](#how-to-interact-with-the-course)
